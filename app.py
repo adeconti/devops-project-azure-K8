@@ -1,10 +1,10 @@
-from flask import Flask
+import http.server
+import socketserver
 
-app = Flask(__name__)
+PORT = 80
 
-@app.route('/')
-def home():
-    return "<h1>Olá, DevOps na Accurate!</h1>"
+Handler = http.server.SimpleHTTPRequestHandler
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80) 
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("serving at port", PORT)
+    httpd.serve_forever()

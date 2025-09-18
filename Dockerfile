@@ -1,11 +1,11 @@
-FROM python:3.10-slim
+FROM python:3.9-slim
 
 WORKDIR /app
 
 COPY app.py .
-
-RUN pip install Flask
+COPY curriculo.html .
 
 EXPOSE 80
 
-CMD ["python", "app.py"]
+# Execute um servidor web simples que serve o arquivo HTML
+CMD ["python", "-m", "http.server", "80"]
