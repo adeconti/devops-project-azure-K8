@@ -21,7 +21,7 @@ jobs:
         with:
           login-server: ${{ secrets.AZURE_LOGIN_SERVER }}
           username: ${{ secrets.AZURE_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
+          password: ${{ secrets.AZURE_PASSWORD }}
 
       - name: Build da imagem Docker
         run: docker build . --file Dockerfile --tag ${{ secrets.AZURE_LOGIN_SERVER }}/devops-app:latest
@@ -52,6 +52,6 @@ jobs:
           image: ${{ secrets.AZURE_LOGIN_SERVER }}/devops-app:latest
           registry-login-server: ${{ secrets.AZURE_LOGIN_SERVER }}
           registry-username: ${{ secrets.AZURE_USERNAME }}
-          registry-password: ${{ secrets.ACR_PASSWORD }}
+          registry-password: ${{ secrets.AZURE_PASSWORD }}
           name: devops-app-from-iac-${{ github.run_number }}
           location: 'brazilsouth'
