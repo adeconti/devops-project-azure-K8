@@ -1,0 +1,5 @@
+# Arquivos de Terraform a serem ignorados
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
