@@ -10,7 +10,7 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "ee640504-f313-4805-a728-74596e0d6714"
+  subscription_id = "subscripton ID key secret"
 }
 
 # Crie o grupo de recursos
