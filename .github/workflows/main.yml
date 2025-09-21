@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  AZURE_CONTAINER_REGISTRY: devopsaccurate.azurecr.io # Use your unique ACR name
+  AZURE_CONTAINER_REGISTRY: devdevopsacract.azurecr.io # Use your unique ACR name
   AZURE_RESOURCE_GROUP: devops-project-rg-k8
   AZURE_CLUSTER_NAME: devops-cluster
   IMAGE_NAME: devops-project-azure-k8
