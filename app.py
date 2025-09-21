@@ -1,10 +1,16 @@
-import http.server
-import socketserver
+from flask import Flask, render_template, jsonify
 
-PORT = 80
+app = Flask(__name__)
 
-Handler = http.server.SimpleHTTPRequestHandler
+@app.route('/')
+def home():
+    # This will look for 'curriculo.html' inside the 'templates' folder
+    return render_template('curriculo.html')
 
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print("serving at port", PORT)
-    httpd.serve_forever()
+@app.route('/healthz')
+def healthz():
+    return jsonify({"status": "healthy"}), 200
+
+if __name__ == '__main__':
+    # Listen on all available network interfaces
+    app.run(host='0.0.0.0', port=80)
